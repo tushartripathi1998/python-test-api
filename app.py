@@ -43,21 +43,22 @@ tasks = [
     }
 ]
 
-# id=2;
+id=len(tasks);
 
 # endpoint to create new user
 @app.route("/user", methods=["POST"])
 def add_user():
-    number = request.json['number']
+    global id;
+    # number = request.json['number']
     name = request.json['name']
     hobby = request.json['hobby']
 
     task = {
-        'number':number,
+        'number':id,
         'name':name,
         'hobby':hobby
     }
-    # id=id+1;
+    id=id+1;
 
     tasks.append(task);
     # new_user = User(username, email)
